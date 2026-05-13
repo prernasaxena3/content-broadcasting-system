@@ -1,0 +1,95 @@
+import * as React from "react"
+import { cn } from "@/lib/utils"
+
+const glassStyle = {
+  background: 'rgba(24, 61, 61, 0.55)',
+  backdropFilter: 'blur(14px)',
+  WebkitBackdropFilter: 'blur(14px)',
+  border: '1px solid rgba(147, 177, 166, 0.2)',
+  borderRadius: '12px',
+  boxShadow: '0 4px 32px rgba(4, 13, 18, 0.4)',
+  color: '#E8F5E9',
+}
+
+function Card({ className, size = "default", style, ...props }) {
+  return (
+    <div
+      data-slot="card"
+      data-size={size}
+      className={cn(
+        "group/card flex flex-col gap-4 overflow-hidden rounded-xl py-4 text-sm has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-3",
+        className
+      )}
+      style={{ ...glassStyle, ...style }}
+      {...props}
+    />
+  )
+}
+
+function CardHeader({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-header"
+      className={cn(
+        "group/card-header @container/card-header grid auto-rows-min items-start gap-1 rounded-t-xl px-4 group-data-[size=sm]/card:px-3 has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto] [.border-b]:pb-4",
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardTitle({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-title"
+      className={cn("font-heading text-base leading-snug font-semibold group-data-[size=sm]/card:text-sm", className)}
+      style={{ color: '#E8F5E9' }}
+      {...props}
+    />
+  )
+}
+
+function CardDescription({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn("text-sm", className)}
+      style={{ color: '#93B1A6' }}
+      {...props}
+    />
+  )
+}
+
+function CardAction({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-action"
+      className={cn("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className)}
+      {...props}
+    />
+  )
+}
+
+function CardContent({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-content"
+      className={cn("px-4 group-data-[size=sm]/card:px-3", className)}
+      {...props}
+    />
+  )
+}
+
+function CardFooter({ className, ...props }) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn("flex items-center rounded-b-xl p-4 group-data-[size=sm]/card:p-3", className)}
+      style={{ borderTop: '1px solid rgba(147,177,166,0.12)', backgroundColor: 'rgba(24,61,61,0.3)' }}
+      {...props}
+    />
+  )
+}
+
+export { Card, CardHeader, CardFooter, CardTitle, CardAction, CardDescription, CardContent }
