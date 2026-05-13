@@ -140,7 +140,7 @@ Only the service layer needs to change. All components, hooks, and Redux logic r
 
 This project is deployed on Vercel.
 
-**Live URL:** [your-vercel-url-here]
+**Live URL:** https://content-broadcasting-system-two.vercel.app/
 
 To deploy your own instance:
 
