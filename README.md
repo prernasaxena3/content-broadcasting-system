@@ -8,16 +8,16 @@ Built with Next.js 14 (App Router), Redux Toolkit, shadcn/ui, Tailwind CSS, and 
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 14 (App Router) |
-| Language | JavaScript (ES6+) |
-| UI Components | shadcn/ui |
-| Styling | Tailwind CSS |
-| State Management | Redux Toolkit |
-| Forms and Validation | React Hook Form + Zod |
-| HTTP Client | Axios |
-| Notifications | Sonner |
+| Layer                | Technology              |
+| -------------------- | ----------------------- |
+| Framework            | Next.js 14 (App Router) |
+| Language             | JavaScript (ES6+)       |
+| UI Components        | shadcn/ui               |
+| Styling              | Tailwind CSS            |
+| State Management     | Redux Toolkit           |
+| Forms and Validation | React Hook Form + Zod   |
+| HTTP Client          | Axios                   |
+| Notifications        | Sonner                  |
 
 ---
 
@@ -32,7 +32,7 @@ Built with Next.js 14 (App Router), Redux Toolkit, shadcn/ui, Tailwind CSS, and 
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/prernasaxena3/content-broadcasting-system.git
 cd content-broadcasting
 
 # Install dependencies
@@ -48,10 +48,10 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Demo Credentials
 
-| Role | Email | Password |
-|---|---|---|
-| Teacher | teacher@demo.com | teacher123 |
-| Teacher 2 | teacher2@demo.com | teacher123 |
+| Role      | Email              | Password     |
+| --------- | ------------------ | ------------ |
+| Teacher   | teacher@demo.com   | teacher123   |
+| Teacher 2 | teacher2@demo.com  | teacher123   |
 | Principal | principal@demo.com | principal123 |
 
 ---
@@ -86,11 +86,13 @@ content-broadcasting/
 ## Features
 
 ### Teacher
+
 - Dashboard with content statistics (total, pending, approved, rejected)
 - Upload content with file preview, subject selection, and scheduling times
 - View all uploaded content with status, scheduling state, and rejection reasons
 
 ### Principal
+
 - Dashboard with system-wide content statistics
 - Review pending content with file preview
 - Approve content with one click
@@ -98,6 +100,7 @@ content-broadcasting/
 - Filter and search all content by status, title, subject, or teacher name
 
 ### Public Live Page
+
 - Accessible at `/live/:teacherId` with no login required
 - Shows currently active approved content for a given teacher
 - Loading, empty, and error states handled
@@ -123,13 +126,13 @@ Each function in the service layer has a comment showing the real API call:
 ```js
 // Current (mock):
 export const getMyContent = async (teacherId) => {
-  return mockContent.filter(c => c.teacherId === teacherId)
-}
+  return mockContent.filter((c) => c.teacherId === teacherId);
+};
 
 // Replace with:
 export const getMyContent = async (teacherId) => {
-  return (await api.get(`/content?teacherId=${teacherId}`)).data
-}
+  return (await api.get(`/content?teacherId=${teacherId}`)).data;
+};
 ```
 
 Only the service layer needs to change. All components, hooks, and Redux logic remain untouched.
@@ -156,6 +159,7 @@ Or connect your GitHub repository to [vercel.com](https://vercel.com) for automa
 ## Documentation
 
 See `frontend-notes.txt` in the project root for detailed documentation on:
+
 - Authentication flow
 - Role-based routing implementation
 - API integration approach
